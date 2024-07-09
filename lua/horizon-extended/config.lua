@@ -6,13 +6,13 @@ local defaults = {
 	terminal_colrs = true,
 	enable_italics = true,
 	styles = {
-		comments = { italic = false },
+		comments = { italic = true },
 		keywords = { italic = false },
-		functions = { bold = false },
-		variables = {},
+		functions = { italic = false },
+		variables = { italic = false },
 		string = { italic = false },
 		underline = false,
-		undercurl = false,
+		undercurl = true,
 	},
 	-- add specific highlight groups
 	on_highlights = function(highlights, colors) end,
