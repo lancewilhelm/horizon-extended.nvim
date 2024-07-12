@@ -1,16 +1,16 @@
 local M = {}
 
 local defaults = {
-	style = "dark",
+	style = "original",
 	transparent = false,
 	terminal_colrs = true,
 	enable_italics = true,
 	styles = {
-		comments = { italic = true },
-		keywords = { italic = false },
-		functions = { italic = false },
-		variables = { italic = false },
-		string = { italic = false },
+		comments = { italic = true, bold = false },
+		keywords = { italic = true, bold = false },
+		functions = { italic = false, bold = false },
+		variables = { italic = false, bold = false },
+		string = { italic = false, bold = false },
 		underline = false,
 		undercurl = true,
 	},
