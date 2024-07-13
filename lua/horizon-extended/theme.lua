@@ -12,19 +12,20 @@ function M.setup()
 	local c = theme.colors
 
 	theme.highlights = {
-		Character = { fg = c.green }, -- Single characters like 'c' or '\n'
+		Character = { link = "string" }, -- Single characters like 'c' or '\n'
 		Comment = { fg = c.mg1, style = options.styles.comments }, -- comments
 		Constant = { fg = c.orange }, -- (preferred) any constant
 		Cursor = { fg = c.bg0, bg = c.fg1 },
 		CursorColumn = { link = "CursorLine" },
 		CursorLine = { bg = c.mg3 },
-		Delimiter = { fg = c.fg0 }, -- punctuation
+		Delimiter = { fg = c.fg0, style = options.styles.delimiter }, -- punctuation
 		DiffAdd = { bg = c.diffadd },
 		DiffChange = { bg = c.diffchange },
 		DiffText = { bg = c.difftext },
 		DiffDelete = { bg = c.diffdelete },
 		Directory = { fg = c.yellow },
 		ErrorText = { sp = c.red, undercurl = options.styles.undercurl },
+		ErrorMsg = { fg = c.red },
 		Folded = { fg = c.blue, bg = c.bg2 },
 		Function = { fg = c.blue }, -- (preferred) function names
 		HintText = { fg = c.green },
@@ -53,7 +54,7 @@ function M.setup()
 		Statement = { fg = c.purple, italic = options.enable_italics }, --
 		StatusLine = { fg = c.fg0, bg = options.transparent and c.none or c.bg0 }, -- status line of current window
 		StatusLineNC = { fg = c.fg2 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		String = { fg = c.green }, -- Strings
+		String = { fg = c.green, style = options.styles.string }, -- Strings
 		Tag = { fg = c.red },
 		TabLine = { fg = c.fg2 }, -- tab pages line, not active tab page label
 		TabLineFill = { bg = c.bg0 }, -- tab pages line, where there are no labels
@@ -260,7 +261,7 @@ function M.setup()
 		["@number"] = { link = "Number" },
 		["@number.float"] = { link = "Float" },
 		["@operator"] = { fg = c.blue }, -- For any operator: `+`, but also `->` and `*` in C.
-		["@property"] = { fg = c.red },
+		["@property"] = { fg = c.green },
 		["@punctuation.bracket"] = { fg = c.fg2 }, -- For brackets and parens.
 		["@punctuation.delimiter"] = { fg = c.blue }, -- For delimiters ie: `.`
 		["@punctuation.special"] = { fg = c.blue }, -- For special symbols (e.g. `{}` in string interpolation)
@@ -335,7 +336,7 @@ function M.setup()
 
 		-- Indent Blank Line
 		IblIdent = { fg = c.red },
-		IblScope = { fg = c.fg2 },
+		IblScope = { fg = c.red },
 		RainbowRed = { blend = 0, fg = c.red },
 		RainbowYellow = { blend = 0, fg = c.yellow },
 		RainbowBlue = { blend = 0, fg = c.blue },
@@ -369,7 +370,8 @@ function M.setup()
 		WhichKeyGroup = { fg = c.yellow },
 		WhichKeyDesc = { fg = c.fg0 },
 		WhichKeySeparator = { fg = c.green },
-		WhichKeyFloat = { bg = c.bg2 },
+		WhichKeyFloat = { fg = c.yellow },
+		WhichKeyBorder = { fg = c.yellow },
 
 		-- Notify
 		NotifyBackground = { bg = c.bg0 },
@@ -422,35 +424,35 @@ function M.setup()
 		UndotreeTimeStamp = { fg = c.yellow },
 
 		-- Bufferline
-		BufferLineFill = { bg = c.bg4 },
-		BufferLineBackground = { bg = c.bg2 },
-		BufferLineCloseButton = { fg = c.mg0, bg = c.bg2 },
-		BufferLineCloseButtonSelected = { fg = c.fg0, bg = c.bg0 },
-		BufferLineCloseButtonVisible = { fg = c.fg0, bg = c.bg0 },
-		BufferLineBufferVisible = { fg = c.mg1, bg = c.bg0 },
-		BufferLineBufferSelected = { bg = c.bg0 },
-		BufferLineNumbers = { fg = c.mg0, bg = c.bg2 },
-		BufferLineNumbersVisible = { fg = c.mg1, bg = c.bg0 },
-		BufferLineNumbersSelected = { bg = c.bg0 },
-		BufferLineHint = { fg = c.bluedim, bg = c.bg2 },
-		BufferLineHintSelected = { fg = c.blue, bg = c.bg0 },
-		BufferLineHintVisible = { fg = c.bluedim, bg = c.bg0 },
-		BufferLineInfo = { fg = c.greendim, bg = c.bg2 },
-		BufferLineInfoSelected = { fg = c.green, bg = c.bg0 },
-		BufferLineInfoVisible = { fg = c.greendim, bg = c.bg0 },
-		BufferLineWarning = { fg = c.yellowdim, bg = c.bg2 },
-		BufferLineWarningSelected = { fg = c.yellow, bg = c.bg0 },
-		BufferLineWarningVisible = { fg = c.yellowdim, bg = c.bg0 },
-		BufferLineError = { fg = c.reddim, bg = c.bg2 },
-		BufferLineErrorSelected = { fg = c.red, bg = c.bg0 },
-		BufferLineErrorVisible = { fg = c.reddim, bg = c.bg0 },
-		BufferLineSeparator = { fg = c.bg4, bg = c.bg2 },
-		BufferLineSeparatorSelected = { fg = c.bg4, bg = c.bg0 },
-		BufferLineSeparatorVisible = { fg = c.bg4, bg = c.bg0 },
-		BufferLineNeoTree = { fg = c.fg0, bg = c.bg2 },
-		BufferLineModified = { fg = c.orangedim, bg = c.bg2 },
-		BufferLineModifiedVisible = { fg = c.orangedim, bg = c.bg0 },
-		BufferLineModifiedSelected = { fg = c.orange, bg = c.bg0 },
+		-- BufferLineFill = { bg = c.bg4 },
+		-- BufferLineBackground = { bg = c.bg2 },
+		-- BufferLineCloseButton = { fg = c.mg0, bg = c.bg2 },
+		-- BufferLineCloseButtonSelected = { fg = c.fg0, bg = c.bg0 },
+		-- BufferLineCloseButtonVisible = { fg = c.fg0, bg = c.bg0 },
+		-- BufferLineBufferVisible = { fg = c.mg1, bg = c.bg0 },
+		-- BufferLineBufferSelected = { bg = c.bg0 },
+		-- BufferLineNumbers = { fg = c.mg0, bg = c.bg2 },
+		-- BufferLineNumbersVisible = { fg = c.mg1, bg = c.bg0 },
+		-- BufferLineNumbersSelected = { bg = c.bg0 },
+		-- BufferLineHint = { fg = c.bluedim, bg = c.bg2 },
+		-- BufferLineHintSelected = { fg = c.blue, bg = c.bg0 },
+		-- BufferLineHintVisible = { fg = c.bluedim, bg = c.bg0 },
+		-- BufferLineInfo = { fg = c.greendim, bg = c.bg2 },
+		-- BufferLineInfoSelected = { fg = c.green, bg = c.bg0 },
+		-- BufferLineInfoVisible = { fg = c.greendim, bg = c.bg0 },
+		-- BufferLineWarning = { fg = c.yellowdim, bg = c.bg2 },
+		-- BufferLineWarningSelected = { fg = c.yellow, bg = c.bg0 },
+		-- BufferLineWarningVisible = { fg = c.yellowdim, bg = c.bg0 },
+		-- BufferLineError = { fg = c.reddim, bg = c.bg2 },
+		-- BufferLineErrorSelected = { fg = c.red, bg = c.bg0 },
+		-- BufferLineErrorVisible = { fg = c.reddim, bg = c.bg0 },
+		-- BufferLineSeparator = { fg = c.bg4, bg = c.bg2 },
+		-- BufferLineSeparatorSelected = { fg = c.bg4, bg = c.bg0 },
+		-- BufferLineSeparatorVisible = { fg = c.bg4, bg = c.bg0 },
+		-- BufferLineNeoTree = { fg = c.fg0, bg = c.bg2 },
+		-- BufferLineModified = { fg = c.orangedim, bg = c.bg2 },
+		-- BufferLineModifiedVisible = { fg = c.orangedim, bg = c.bg0 },
+		-- BufferLineModifiedSelected = { fg = c.orange, bg = c.bg0 },
 
 		-- diff
 		diffAdded = { fg = c.green },

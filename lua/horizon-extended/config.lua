@@ -1,9 +1,9 @@
 local M = {}
 
 local defaults = {
-	style = "original",
+	style = "neo",
 	transparent = false,
-	terminal_colrs = true,
+	terminal_colors = true,
 	enable_italics = true,
 	styles = {
 		comments = { italic = true, bold = false },
@@ -11,6 +11,7 @@ local defaults = {
 		functions = { italic = false, bold = false },
 		variables = { italic = false, bold = false },
 		string = { italic = false, bold = false },
+		delimiter = { italic = false, bold = false },
 		underline = false,
 		undercurl = true,
 	},
