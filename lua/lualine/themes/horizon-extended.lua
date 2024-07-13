@@ -1,10 +1,10 @@
-local c = require("horizon-extended.colors").dark
+local c = require("horizon-extended.colors").setup()
 
 local theme = {}
 
 theme = {
 	normal = {
-		a = { bg = c.fg0, fg = c.bg0 },
+		a = { bg = c.red, fg = c.bg0 },
 		b = { bg = c.bg0, fg = c.fg0 },
 		c = { bg = c.bg0, fg = c.fg0 },
 	},

@@ -1,5 +1,6 @@
 local colors = require("horizon-extended.colors")
 
+-- TODO: standardize the variables so that if they are the same thing they are calling the same colors and styles
 local M = {}
 function M.setup()
 	local config = require("horizon-extended.config")
@@ -14,17 +15,19 @@ function M.setup()
 	theme.highlights = {
 		Character = { link = "string" }, -- Single characters like 'c' or '\n'
 		Comment = { fg = c.mg1, style = options.styles.comments }, -- comments
+		Conditional = { fg = c.purple, style = options.styles.conditionals },
 		Constant = { fg = c.orange }, -- (preferred) any constant
 		Cursor = { fg = c.bg0, bg = c.fg1 },
 		CursorColumn = { link = "CursorLine" },
 		CursorLine = { bg = c.mg3 },
-		Delimiter = { fg = c.fg0, style = options.styles.delimiter }, -- punctuation
+		Delimiter = { fg = c.fg0, style = options.styles.delimiters }, -- punctuation
 		DiffAdd = { bg = c.diffadd },
 		DiffChange = { bg = c.diffchange },
 		DiffText = { bg = c.difftext },
 		DiffDelete = { bg = c.diffdelete },
 		Directory = { fg = c.yellow },
-		ErrorText = { sp = c.red, undercurl = options.styles.undercurl },
+		EndOfBuffer = { fg = options.show_end_of_buffer and c.mg1 or c.bg0 },
+		ErrorText = { sp = c.red, undercurl = options.undercurl },
 		ErrorMsg = { fg = c.red },
 		Folded = { fg = c.blue, bg = c.bg2 },
 		Function = { fg = c.blue }, -- (preferred) function names
@@ -40,27 +43,28 @@ function M.setup()
 		CurSearch = { link = "IncSearch" },
 		IncSearch = { fg = c.bg0, bg = c.orange },
 		PreProc = { fg = c.purple },
-		QuickFixLine = { bg = c.bg1, bold = true, undercurl = options.styles.undercurl }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+		QuickFixLine = { bg = c.bg1, bold = true, undercurl = options.undercurl }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+		Repeat = { fg = c.purple, style = options.styles.loops },
 		Search = { fg = c.bg0, bg = c.yellow },
 		SignatureMarkText = { fg = c.purple },
 		SignatureMarkLine = { bg = c.markline },
 		SignColumn = { bg = options.transparent and c.none or c.bg0 },
 		SignColumnSB = { bg = c.bg0, fg = c.bg1 },
 		Special = { fg = c.peach }, -- special items
-		SpellBad = { sp = c.red, undercurl = options.styles.undercurl },
-		SpellCap = { sp = c.blue, undercurl = options.styles.undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-		SpellLocal = { sp = c.purple, undercurl = options.styles.undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-		SpellRare = { sp = c.green, undercurl = options.styles.undercurl }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-		Statement = { fg = c.purple, italic = options.enable_italics }, --
+		SpellBad = { sp = c.red, undercurl = options.undercurl },
+		SpellCap = { sp = c.blue, undercurl = options.undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+		SpellLocal = { sp = c.purple, undercurl = options.undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+		SpellRare = { sp = c.green, undercurl = options.undercurl }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+		Statement = { fg = c.purple, italic = options.enable_italics }, -- (preferred) any statment (if, for, case, etc.)
 		StatusLine = { fg = c.fg0, bg = options.transparent and c.none or c.bg0 }, -- status line of current window
 		StatusLineNC = { fg = c.fg2 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		String = { fg = c.green, style = options.styles.string }, -- Strings
+		String = { fg = c.green, style = options.styles.strings }, -- Strings
 		Tag = { fg = c.red },
 		TabLine = { fg = c.fg2 }, -- tab pages line, not active tab page label
 		TabLineFill = { bg = c.bg0 }, -- tab pages line, where there are no labels
 		TabLineSel = { fg = c.bg0, bg = c.blue }, -- tab pages line, active tab page label
 		Title = { fg = c.blue },
-		Type = { fg = c.yellow },
+		Type = { fg = c.yellow, style = options.styles.types },
 		Question = { fg = c.blue },
 		Removed = { fg = c.red },
 		VertSplit = { fg = c.fg1 },
@@ -146,7 +150,7 @@ function M.setup()
 		-- These highlight Groups are for Tree-sitter
 		TSAnnotation = { fg = c.purple },
 		TSAttribute = { fg = c.purple },
-		TSBoolean = { fg = c.purple },
+		TSBoolean = { fg = c.orange, style = options.styles.booleans },
 		TSCharacter = { fg = c.blue },
 		TSComment = { link = "Comment" },
 		TSConditional = { link = "Conditional" },
@@ -169,10 +173,10 @@ function M.setup()
 		TSNamespace = { fg = c.yellow, italic = true },
 		TSNone = { fg = c.fg0 },
 		TSNumber = { fg = c.purple },
-		TSOperator = { fg = c.orange },
+		TSOperator = { fg = c.orange, style = options.styles.operators },
 		TSParameter = { fg = c.red },
 		TSParameterReference = { fg = c.fg0 },
-		TSProperty = { fg = c.red },
+		TSProperty = { fg = c.red, style = options.styles.properties },
 		TSPunctBracket = { fg = c.fg0 },
 		TSPunctDelimiter = { fg = c.mg1 },
 		TSPunctSpecial = { fg = c.blue },
@@ -187,7 +191,7 @@ function M.setup()
 		TSText = { fg = c.green },
 		TSStrike = { fg = c.mg1 },
 		TSMath = { fg = c.blue },
-		TSType = { fg = c.yellow },
+		TSType = { fg = c.yellow, style = options.styles.types },
 		TSTypeBuiltin = { fg = c.yellow, italic = true },
 		TSURI = { link = "markdownUrl" },
 		TSVariable = { fg = c.fg0 },
@@ -196,7 +200,7 @@ function M.setup()
 		-- Identifiers
 		["@annotation"] = { link = "PreProc" },
 		["@attribute"] = { link = "PreProc" },
-		["@boolean"] = { link = "Boolean" },
+		["@boolean"] = { link = "TSBoolean" },
 		["@character"] = { link = "Character" },
 		["@character.printf"] = { link = "SpecialChar" },
 		["@character.special"] = { link = "SpecialChar" },
@@ -230,7 +234,7 @@ function M.setup()
 		["@keyword.exception"] = { link = "Exception" },
 		["@keyword.function"] = { fg = c.purple, style = options.styles.functions }, -- For keywords used to define a function.
 		["@keyword.import"] = { link = "Include" },
-		["@keyword.operator"] = { fg = c.purple },
+		["@keyword.operator"] = { fg = c.purple, style = options.styles.operators },
 		["@keyword.repeat"] = { link = "Repeat" },
 		["@keyword.return"] = { link = "@keyword" },
 		["@keyword.storage"] = { link = "StorageClass" },
@@ -260,8 +264,8 @@ function M.setup()
 		["@none"] = {},
 		["@number"] = { link = "Number" },
 		["@number.float"] = { link = "Float" },
-		["@operator"] = { fg = c.blue }, -- For any operator: `+`, but also `->` and `*` in C.
-		["@property"] = { fg = c.green },
+		["@operator"] = { fg = c.blue, style = options.styles.operators }, -- For any operator: `+`, but also `->` and `*` in C.
+		["@property"] = { fg = c.green, style = options.styles.properties },
 		["@punctuation.bracket"] = { fg = c.fg2 }, -- For brackets and parens.
 		["@punctuation.delimiter"] = { fg = c.blue }, -- For delimiters ie: `.`
 		["@punctuation.special"] = { fg = c.blue }, -- For special symbols (e.g. `{}` in string interpolation)
@@ -865,7 +869,11 @@ function M.setup()
 		dosiniValue = { fg = c.fg0 },
 		dosiniHeader = { fg = c.red },
 
-		--
+		-- mini.hipatterns
+		MiniHipatternsFixme = { bg = c.red, fg = c.bg0 },
+		MiniHipatternsHack = { bg = c.yellow, fg = c.bg0 },
+		MiniHipatternsTodo = { bg = c.blue, fg = c.bg0 },
+		MiniHipatternsNote = { bg = c.green, fg = c.bg0 },
 	}
 
 	theme.defer = {}
