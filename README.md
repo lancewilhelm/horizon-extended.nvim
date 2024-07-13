@@ -1,6 +1,7 @@
 <h3 align="center">
 <img src="./imgs/logo.svg" width="100" alt="logo"/></br>
 Horizon Extended (nvim)
+<img src="./imgs/teaser.png" alt="teaser stack"/>
 </h3>
 
 <p align="center">
@@ -46,25 +47,32 @@ colorscheme horizon-extended
 vim.cmd.colorscheme "horizon-extended"
 ```
 
-# Configuration
+# Default Configuration
 
 There is no need to call setup if you do not want to change the default options and settings.
 
 ```lua
 require("horizon-extended").setup({
-	style = "neo", -- style of the theme
-	transparent = false, -- sets the background to be transparent
-	terminal_colors = false, -- builtin terminal theme colors
-	enable_italics = true, -- enable italics for the theme
+	style = "neo",
+	transparent = false,
+	terminal_colors = true,
+	enable_italics = true,
+	show_end_of_buffer = false,
+	underline = false,
+	undercurl = true,
 	styles = {
-		comments = { italic = true, bold = false }, -- change the style of the comments
-		keywords = { italic = true, bold = false },
+		booleans = { italic = true, bold = false },
+		comments = { italic = true, bold = false },
+		conditionals = { italic = true, bold = false },
+		delimiters = { italic = false, bold = false },
 		functions = { italic = false, bold = false },
+		keywords = { italic = true, bold = false },
+		loops = { italic = true, bold = false },
+		operators = { italic = false, bold = false },
+		properties = { italic = false, bold = false },
+		strings = { italic = false, bold = false },
+		types = { italic = false, bold = false },
 		variables = { italic = false, bold = false },
-		string = { italic = false, bold = false },
-		delimiter = { italic = false, bold = false },
-		underline = false, -- enable underlines
-		undercurl = true, -- enable undercurls
 	},
 })
 ```
