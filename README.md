@@ -44,7 +44,7 @@ colorscheme horizon-extended
 
 ```lua
 vim.cmd.colorscheme "horizon-extended"
-
+```
 
 # Configuration
 
