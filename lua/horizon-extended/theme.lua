@@ -1,6 +1,6 @@
 local colors = require("horizon-extended.colors")
 
--- TODO: standardize the variables so that if they are the same thing they are calling the same colors and styles
+--TODO: standardize the variables so that if they are the same thing they are calling the same colors and styles
 local M = {}
 function M.setup()
 	local config = require("horizon-extended.config")
