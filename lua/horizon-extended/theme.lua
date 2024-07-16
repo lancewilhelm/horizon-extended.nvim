@@ -270,7 +270,7 @@ function M.setup()
 		["@punctuation.delimiter"] = { fg = c.blue }, -- For delimiters ie: `.`
 		["@punctuation.special"] = { fg = c.blue }, -- For special symbols (e.g. `{}` in string interpolation)
 		["@string"] = { link = "String" },
-		["@string.documentation"] = { fg = c.yellow },
+		["@string.documentation"] = { fg = c.green },
 		["@string.escape"] = { fg = c.red }, -- For escape characters within a string.
 		["@string.regexp"] = { fg = c.blue }, -- For regexes.
 		["@tag"] = { fg = c.red },
