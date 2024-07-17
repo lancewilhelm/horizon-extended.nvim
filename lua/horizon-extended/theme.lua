@@ -285,7 +285,7 @@ function M.setup()
 		["@type.qualifier"] = { link = "@keyword" },
 		["@variable"] = { fg = c.red, style = options.styles.variables }, -- Any variable name that does not have another highlight.
 		["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
-		["@variable.member"] = { fg = c.green }, -- For fields.
+		["@variable.member"] = { fg = c.orange }, -- For fields.
 		["@variable.parameter"] = { fg = c.yellow }, -- For parameters of a function.
 		["@variable.parameter.builtin"] = { fg = c.yellow }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 		["@text.reference"] = { fg = c.purple },
