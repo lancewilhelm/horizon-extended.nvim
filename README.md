@@ -8,6 +8,10 @@ Horizon Extended (nvim)
 Bringing over the <i>mildly</i> popular <a href="https://github.com/lancewilhelm/horizon-extended">Horizon Extended VSCode theme</a> to Neovim.
 </p>
 
+<p align="center">
+    <i>This theme will be very similar to the preexisting <a href="https://github.com/akinsho/horizon.nvim?tab=readme-ov-file">horizon.nvim</a> theme from <a href="https://github.com/akinsho">akinso</a>, just with my flavor from the VSCode theme</i>
+</p>
+
 # Styles
 
 <details>
