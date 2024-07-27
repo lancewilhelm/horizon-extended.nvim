@@ -5,27 +5,27 @@ local theme = {}
 theme = {
 	normal = {
 		a = { bg = c.red, fg = c.bg0 },
-		b = { bg = c.bg0, fg = c.fg0 },
+		b = { bg = c.mg2, fg = c.red },
 		c = { bg = c.bg0, fg = c.fg0 },
 	},
 	insert = {
 		a = { bg = c.green, fg = c.bg0 },
-		b = { bg = c.bg0, fg = c.fg0 },
+		b = { bg = c.mg2, fg = c.green },
 		c = { bg = c.bg0, fg = c.fg0 },
 	},
 	visual = {
 		a = { bg = c.purple, fg = c.bg0 },
-		b = { bg = c.bg0, fg = c.fg0 },
+		b = { bg = c.mg2, fg = c.purple },
 		c = { bg = c.bg0, fg = c.fg0 },
 	},
 	replace = {
 		a = { bg = c.blue, fg = c.bg0 },
-		b = { bg = c.bg0, fg = c.fg0 },
+		b = { bg = c.mg2, fg = c.blue },
 		c = { bg = c.bg0, fg = c.fg0 },
 	},
 	command = {
 		a = { bg = c.yellow, fg = c.bg0 },
-		b = { bg = c.bg0, fg = c.fg0 },
+		b = { bg = c.mg2, fg = c.yellow },
 		c = { bg = c.bg0, fg = c.fg0 },
 	},
 	innactive = {
