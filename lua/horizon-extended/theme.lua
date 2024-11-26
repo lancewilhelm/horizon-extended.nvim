@@ -13,10 +13,10 @@ function M.setup()
 	local c = theme.colors
 
 	theme.highlights = {
-		Character = { link = "string" }, -- Single characters like 'c' or '\n'
+		Character = { link = "string" },                         -- Single characters like 'c' or '\n'
 		Comment = { fg = c.mg1, style = options.styles.comments }, -- comments
 		Conditional = { fg = c.purple, style = options.styles.conditionals },
-		Constant = { fg = c.orange }, -- (preferred) any constant
+		Constant = { fg = c.orange },                            -- (preferred) any constant
 		Cursor = { fg = c.bg0, bg = c.fg1 },
 		CursorColumn = { link = "CursorLine" },
 		CursorLine = { bg = c.mg3 },
@@ -35,9 +35,9 @@ function M.setup()
 		Identifier = { fg = c.red }, -- (preferred) any variable name
 		LineNr = { fg = c.mg2 },
 		MatchParen = { fg = c.yellow, bg = c.mg0, bold = true },
-		Normal = { fg = c.fg0, bg = options.transparent and c.none or c.bg0 }, -- Normal text
+		Normal = { fg = c.fg0, bg = options.transparent and c.none or c.bg0 },    -- Normal text
 		NormalFloat = { fg = c.fg0, bg = options.transparent and c.none or c.bg2 }, -- Normal text in a floating window
-		NormalNC = { fg = c.fg0, bg = options.transparent and c.none or c.bg0 }, -- Normal text in a non-current window
+		NormalNC = { fg = c.fg0, bg = options.transparent and c.none or c.bg0 },  -- Normal text in a non-current window
 		ModeMsg = { fg = c.fg2 },
 		MoreMsg = { fg = c.purple },
 		CurSearch = { link = "IncSearch" },
@@ -50,19 +50,19 @@ function M.setup()
 		SignatureMarkLine = { bg = c.markline },
 		SignColumn = { bg = options.transparent and c.none or c.bg0 },
 		SignColumnSB = { bg = c.bg0, fg = c.bg1 },
-		Special = { fg = c.peach }, -- special items
+		Special = { fg = c.peach },                                              -- special items
 		SpellBad = { sp = c.red, undercurl = options.undercurl },
-		SpellCap = { sp = c.blue, undercurl = options.undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-		SpellLocal = { sp = c.purple, undercurl = options.undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-		SpellRare = { sp = c.green, undercurl = options.undercurl }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-		Statement = { fg = c.purple, italic = options.enable_italics }, -- (preferred) any statment (if, for, case, etc.)
+		SpellCap = { sp = c.blue, undercurl = options.undercurl },               -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+		SpellLocal = { sp = c.purple, undercurl = options.undercurl },           -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+		SpellRare = { sp = c.green, undercurl = options.undercurl },             -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+		Statement = { fg = c.purple, italic = options.enable_italics },          -- (preferred) any statment (if, for, case, etc.)
 		StatusLine = { fg = c.fg0, bg = options.transparent and c.none or c.bg0 }, -- status line of current window
-		StatusLineNC = { fg = c.fg2 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		String = { fg = c.green, style = options.styles.strings }, -- Strings
+		StatusLineNC = { fg = c.fg2 },                                           -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+		String = { fg = c.green, style = options.styles.strings },               -- Strings
 		Tag = { fg = c.red },
-		TabLine = { fg = c.fg2 }, -- tab pages line, not active tab page label
-		TabLineFill = { bg = c.bg0 }, -- tab pages line, where there are no labels
-		TabLineSel = { fg = c.bg0, bg = c.blue }, -- tab pages line, active tab page label
+		TabLine = { fg = c.fg2 },                                                -- tab pages line, not active tab page label
+		TabLineFill = { bg = c.bg0 },                                            -- tab pages line, where there are no labels
+		TabLineSel = { fg = c.bg0, bg = c.blue },                                -- tab pages line, active tab page label
 		Title = { fg = c.blue },
 		Type = { fg = c.yellow, style = options.styles.types },
 		Question = { fg = c.blue },
@@ -72,9 +72,9 @@ function M.setup()
 		VisualNOS = { bg = c.bg1 }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = c.red },
 		WarningText = { sp = c.yellow, undercurl = true },
-		Whitespace = { fg = c.mg3 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
-		WildMenu = { bg = c.bg1 }, -- current match in 'wildmenu' completion
-		WinSeparator = { fg = c.mg2 }, -- the column separating vertically split windows
+		Whitespace = { fg = c.mg3 },        -- "nbsp", "space", "tab" and "trail" in 'listchars'
+		WildMenu = { bg = c.bg1 },          -- current match in 'wildmenu' completion
+		WinSeparator = { fg = c.mg2 },      -- the column separating vertically split windows
 		lCursor = { fg = c.bg0, bg = c.fg0 }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 
 		-- Diagnostic
@@ -249,7 +249,7 @@ function M.setup()
 		["@markup.link.label"] = { link = "SpecialChar" },
 		["@markup.link.label.symbol"] = { link = "Identifier" },
 		["@markup.link.url"] = { link = "Underlined" },
-		["@markup.list"] = { fg = c.blue }, -- For special punctutation that does not fall in the categories before.
+		["@markup.list"] = { fg = c.blue },         -- For special punctutation that does not fall in the categories before.
 		["@markup.list.checked"] = { fg = c.green }, -- For brackets and parens.
 		["@markup.list.unchecked"] = { fg = c.blue }, -- For brackets and parens.
 		["@markup.math"] = { link = "Special" },
@@ -266,9 +266,9 @@ function M.setup()
 		["@number.float"] = { link = "Float" },
 		["@operator"] = { fg = c.blue, style = options.styles.operators }, -- For any operator: `+`, but also `->` and `*` in C.
 		["@property"] = { fg = c.green, style = options.styles.properties },
-		["@punctuation.bracket"] = { fg = c.fg2 }, -- For brackets and parens.
-		["@punctuation.delimiter"] = { fg = c.blue }, -- For delimiters ie: `.`
-		["@punctuation.special"] = { fg = c.blue }, -- For special symbols (e.g. `{}` in string interpolation)
+		["@punctuation.bracket"] = { fg = c.fg2 },                       -- For brackets and parens.
+		["@punctuation.delimiter"] = { fg = c.blue },                    -- For delimiters ie: `.`
+		["@punctuation.special"] = { fg = c.blue },                      -- For special symbols (e.g. `{}` in string interpolation)
 		["@string"] = { link = "String" },
 		["@string.documentation"] = { fg = c.green },
 		["@string.escape"] = { fg = c.red }, -- For escape characters within a string.
@@ -284,13 +284,13 @@ function M.setup()
 		["@type.definition"] = { link = "Typedef" },
 		["@type.qualifier"] = { link = "@keyword" },
 		["@variable"] = { fg = c.red, style = options.styles.variables }, -- Any variable name that does not have another highlight.
-		["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
-		["@variable.member"] = { fg = c.orange }, -- For fields.
-		["@variable.parameter"] = { fg = c.yellow }, -- For parameters of a function.
-		["@variable.parameter.builtin"] = { fg = c.yellow }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
+		["@variable.builtin"] = { fg = c.red },                         -- Variable names that are defined by the languages, like `this` or `self`.
+		["@variable.member"] = { fg = c.orange },                       -- For fields.
+		["@variable.parameter"] = { fg = c.yellow },                    -- For parameters of a function.
+		["@variable.parameter.builtin"] = { fg = c.yellow },            -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 		["@text.reference"] = { fg = c.purple },
-		["@text.todo.unchecked"] = { fg = c.blue }, -- For brackets and parens.
-		["@text.todo.checked"] = { fg = c.green }, -- For brackets and parens.
+		["@text.todo.unchecked"] = { fg = c.blue },                     -- For brackets and parens.
+		["@text.todo.checked"] = { fg = c.green },                      -- For brackets and parens.
 		["@text.warning"] = { fg = c.bg, bg = c.yellow },
 		["@text.danger"] = { fg = c.fg0, bg = c.red },
 		["@text.diff.add"] = { link = "DiffAdd" },
@@ -469,9 +469,9 @@ function M.setup()
 		diffIndexLine = { fg = c.purple },
 
 		-- GitSigns
-		GitSignsAdd = { link = "GreenSign" }, -- diff mode: Added line |diff.txt|
+		GitSignsAdd = { link = "GreenSign" },   -- diff mode: Added line |diff.txt|
 		GitSignsChange = { link = "YellowSign" }, -- diff mode: Changed line |diff.txt|
-		GitSignsDelete = { link = "RedSign" }, -- diff mode: Deleted line |diff.txt|
+		GitSignsDelete = { link = "RedSign" },  -- diff mode: Deleted line |diff.txt|
 		GitSignsAddNr = { fg = c.green },
 		GitSignsChangeNr = { fg = c.yellow },
 		GitSignsDeleteNr = { fg = c.red },
@@ -856,13 +856,14 @@ function M.setup()
 		cmakeKWwrite_file = { fg = c.blue },
 
 		-- Yaml
-		yamlKey = { fg = c.red },
+		namlKey = { fg = c.red },
 		yamlConstant = { fg = c.purple },
 
 		-- toml
 		tomlKey = { fg = c.red },
 		tomlBoolean = { fg = c.blue },
 		tomlTableArray = { link = "tomlTable" },
+		["@property.toml"] = { fg = c.blue },
 
 		-- DOS
 		dosiniLabel = { fg = c.purple },
