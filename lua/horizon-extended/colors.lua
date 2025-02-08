@@ -40,7 +40,7 @@ M.tempo = {
 
 -- @class Neo Color Palette
 M.neo = {
-	bg0 = "#1C1E26",
+	bg0 = hsl(228, 15, 15),
 	bg1 = hsl(228, 15, 13),
 	bg2 = hsl(228, 15, 11),
 	bg3 = hsl(228, 15, 9),
