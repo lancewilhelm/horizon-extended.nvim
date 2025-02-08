@@ -183,7 +183,9 @@ function M.setup(opts)
 	local config = require("horizon-extended.config")
 
 	local palette = M.neo
-	if config.options.style == "neo" or config.options.style == "Neo" then
+	if config.options.style == "tempo" or config.options.style == "Tempo" then
+		palette = M.tempo
+	elseif config.options.style == "neo" or config.options.style == "Neo" then
 		palette = M.neo
 	elseif config.options.style == "beam" or config.options.style == "Beam" then
 		palette = M.beam
