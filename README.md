@@ -9,7 +9,7 @@ Bringing over the <i>mildly</i> popular <a href="https://github.com/lancewilhelm
 </p>
 
 <p align="center">
-    <i>This theme will be very similar to the preexisting <a href="https://github.com/akinsho/horizon.nvim?tab=readme-ov-file">horizon.nvim</a> theme from <a href="https://github.com/akinsho">akinso</a>, just with my flavor from the VSCode theme</i>
+    <i>This theme will be very similar to the preexisting <a href="https://github.com/akinsho/horizon.nvim?tab=readme-ov-file">horizon.nvim</a> theme from <a href="https://github.com/akinsho">akinsho</a>, just with my flavor from the VSCode theme</i>
 </p>
 
 # Styles
@@ -118,3 +118,9 @@ Here is a list of plugins (in no particular order) that have been tested with th
 - [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [conform.nvim](https://github.com/stevearc/conform.nvim)
+
+# License
+
+Lance Wilhelm's original contributions are available under the [MIT License](LICENSE).
+Third-party code retains its upstream terms. See [third-party notices and provenance](THIRD_PARTY_NOTICES.md)
+for the Apache-2.0 and CC BY 3.0 material, source credits, and unresolved earlier provenance.
